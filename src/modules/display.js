@@ -11,11 +11,11 @@ const display = (data) => {
              <div class="likes"></div>
          </div>
         <div class="buttons">
-         <button class="comment">Comments</button>
+         <button id="${dat.id}" class="comment com-btn">Comments</button>
         </div>
      </div>
          `;
     cardContainer.appendChild(containment);
   });
 };
-module.exports = display;
+export { display as default };
