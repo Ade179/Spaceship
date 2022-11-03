@@ -30,7 +30,7 @@ const popup = (id, rockets) => {
     <h3 id='com-head'>Add comment</h3>
         <input type="text" class="input" id="name" placeholder="your name">
         <textarea name="insight" class="input" id="insight" cols="30" rows="10" placeholder="your insights"></textarea>
-        <button type="button" class='com-btn'>Comment</button>
+        <button type="submit" class='com-btn'>Submit</button>
     </form>
 </div>    
     `;
