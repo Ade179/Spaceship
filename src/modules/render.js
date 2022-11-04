@@ -17,7 +17,8 @@ const render = (data) => {
              <p><span id="${likes}"></span>&nbsp&nbsp likes <p>
              </div>
          </div>
-         <button id="${dat.id}" class="comment">Comments</button>
+         <button id="${dat.id}" class="comment">Comments</button><br>
+         <button id="${dat.id}" class="reserve">Reservations</button>
         </div>
          `;
     cardContainer.append(containment);

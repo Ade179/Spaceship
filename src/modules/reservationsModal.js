@@ -1,46 +1,76 @@
-const reserveModal = document.querySelector('.modalreserve');
-const reservePopup = (id, reserves) => {
-  const reserve = reserves.find((data) => data.id === id);
-  reserveModal.innerHTML = `
+import addreserve, { getreserves } from './reserver.js';
+
+const popups = document.querySelector('.pop-up');
+const over = document.querySelector('.over');
+const overlay = document.getElementById('overlay_1');
+let url;
+let appId;
+const reservePopup = (id, reservations, appid) => {
+  const reservation = reservations.find((data) => data.id === id);
+
+  popups.innerHTML = `
     <div class="titles">
-    <img class="reserveimage" src="${reserve.image}" alt="reserve">
+    <img class="reservationimage" src="${reservation.image}" alt="reservation">
     <button class="close">&times;</button>
 </div>
 <div class="content">
-    <h1>${reserve.name}</h1>
+    <h1>${reservation.name}</h1>
     <div class="info">
-       <div class='reserve-info'> <ul class="line1">
-            <li><span>Logistics Service Provider:</span> ${reserve.lsp_name}</li>
-            <li><span>Orbit:</span> ${reserve.orbit}</li>
-            <li><span>Pad:</span> ${reserve.pad}</li>
+        <ul class="line1">
+            <li><span>Logistics Service Provider:</span> ${reservation.lsp_name}</li>
+            <li><span>Orbit:</span> ${reservation.orbit}</li>
+            <li><span>Pad:</span> ${reservation.pad}</li>
         </ul>
         <ul class="line2">
-        <li><span>Mission:</span> ${reserve.mission}</li>
-        <li><span>Mission Type:</span> ${reserve.mission_type}</li>
-        <li><span>Location:</span> ${reserve.location}</li>
+        <li><span>Mission:</span> ${reservation.mission}</li>
+        <li><span>Mission Type:</span> ${reservation.mission_type}</li>
+        <li><span>Location:</span> ${reservation.location}</li>
         </ul>
     </div>
-    <h3>Researvations(2)</h3>
-    <ul class ="reserve-section">
-    <li>01/11/2022 Chris: It's beautiful</li>
-    <li>02/11/2022 Hazel: I really like this one!</li>
+    <h3>reservations(2)</h3>
+    <ul id="reservestable">
     </ul>
-    </div>
+
+    <h3>Add reserve</h3>
     <form>
-    <h3 id='com-head'>Add a Reservation</h3>
-        <input type="text" class="input" id="name" placeholder="your name">
-        <input type="text" class="input" id="name" placeholder="Start-Date">
-        <input type="text" class="input" id="name" placeholder="End-Date">
-        <button type="button" class='com-btn'>Reserve</button>
+        <input type="text" id="name" class="input" placeholder="your name">
+        <input type="date" id="s-date" class="input" placeholder="Start Date">
+        <input type="date" id="e-date" class="input" placeholder="End Date">
+        
+        <button type="button" id="reserve">reserve</button>
     </form>
 </div>    
     `;
 
-  reserveModal.classList.toggle('active');
+  appId = appid;
+
+  popups.classList.toggle('active');
+  over.classList.toggle('active');
+  overlay.classList.toggle('active');
+
+  url = new URL(`https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${appId}/reserves`);
+  const params = { item_id: id };
+  Object.keys(params).forEach((key) => url.searchParams.append(key, params[key]));
+  getreserves(url);
+
   const close = document.querySelector('.close');
   close.addEventListener('click', () => {
-    reserveModal.classList.remove('active');
+    popups.classList.remove('active');
+    over.classList.remove('active');
+    overlay.classList.remove('active');
+  });
+
+  const reserveing = document.getElementById('reserve');
+  const user = document.getElementById('name');
+  const startDate = document.getElementById('s-date');
+  const endDate = document.getElementById('e-date');
+
+  reserveing.addEventListener('click', () => {
+    if (user.value !== '' && startDate.value !== '' && endDate.value !== '') {
+      addreserve(`https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${appId}/reserves`, id, user.value, startDate.value, endDate.value);
+      document.forms[0].reset();
+    }
   });
 };
 
-module.exports = reservePopup;
+export { reservePopup as default };
