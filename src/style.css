@@ -64,7 +64,7 @@ header {
 }
 
 .fas {
-  color: #1e1e1e;
+  color: red;
   cursor: pointer;
 }
 
@@ -340,4 +340,8 @@ footer {
 
 .Authors {
   color: #1e1e1e;
+}
+
+h3{
+  color: white;
 }
