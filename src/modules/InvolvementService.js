@@ -7,10 +7,6 @@ export default class InvolvementService {
 
   static getReservations = async (launchId) => InvolvementAPI.getReservation(launchId)
 
-  static getCommentsCount = (comments) => comments.length
-
-  static getReservationsCount = (reserves) => reserves.length
-
   static postComment = async (launchId, newComment) => {
     await InvolvementAPI.postComment(launchId, newComment);
   }

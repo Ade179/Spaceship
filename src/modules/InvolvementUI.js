@@ -1,13 +1,14 @@
 import InvolvementService from './InvolvementService.js';
 import { Comment, Reserve } from './Modals.js';
+import getReservationCount, { getCommentsCount } from './counters.js';
 
 const getDetails = document.querySelector('.commentList');
 const hiddenLaunchId = document.getElementById('launch-id');
-const commentsCount = document.querySelector('.comments-count');
+
 const txtname = document.getElementById('txt-visitor');
 const txtcomment = document.getElementById('txt-comment');
 const btnSaveComment = document.getElementById('btn-save-comment');
-
+const commentsCount = document.querySelector('.comments-count');
 const getDetails1 = document.querySelector('.reserveList');
 const hiddenLaunchId1 = document.getElementById('ilaunch-id');
 const reserveCount = document.querySelector('.reserve-count');
@@ -26,7 +27,7 @@ export default class InvolvementUI {
     getDetails.innerHTML = ' ';
     await InvolvementService.getComments(launchId)
       .then((comments) => {
-        commentsCount.innerText = InvolvementService.getCommentsCount(comments);
+        commentsCount.textContent = getCommentsCount(comments);
         comments.forEach((comment) => {
           const li = document.createElement('li');
           li.innerText = `${comment.creation_date}: ${comment.username}: ${comment.comment}`;
@@ -42,7 +43,7 @@ export default class InvolvementUI {
     getDetails1.innerHTML = ' ';
     await InvolvementService.getReservations(launchId)
       .then((reserves) => {
-        reserveCount.innerText = InvolvementService.getReservationsCount(reserves);
+        reserveCount.textContent = getReservationCount(reserves);
         reserves.forEach((comment) => {
           const li = document.createElement('li');
           li.innerText = `${comment.date_start} - ${comment.date_end} by ${comment.username} `;
