@@ -122,6 +122,26 @@ button {
   display: block;
 }
 
+.modalreserve {
+  display: none;
+  width: 100vw;
+  height: 85vh;
+  margin: 0;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 0;
+  position: fixed;
+  z-index: 5;
+  padding: 20px;
+  backdrop-filter: blur(15px);
+  justify-items: center;
+  text-align: center;
+  overflow: scroll;
+}
+
+.modalreserve.active {
+  display: block;
+}
+
 .close {
   float: right;
   margin: 0.02em 0.4em 0 0;
@@ -143,7 +163,8 @@ button {
   font-size: 1.2em;
 }
 
-.rocketimage {
+.rocketimage,
+.reserveimage {
   width: 30em;
   height: 30em;
   border-radius: 0;

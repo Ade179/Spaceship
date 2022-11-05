@@ -11,7 +11,8 @@ const display = (data) => {
              <div class="likes"></div>
          </div>
         <div class="buttons">
-         <button id="${dat.id}" class="comment com-btn">Comments</button>
+         <button id="${dat.id}" class="comment com-btn">Comments</button> <br>
+         <button id="${dat.id}" class="reserve com-btn">Reservations</button>
         </div>
      </div>
          `;
