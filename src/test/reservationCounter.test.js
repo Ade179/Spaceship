@@ -2,7 +2,7 @@
  * @jest-environment jsdom
  */
 
-import InvolvementService from '../modules/InvolvementService.js';
+import getReservationCount from '../modules/counters';
 
 describe('Testing reservation counter', () => {
   test('Getting count for reservationss', () => {
@@ -34,7 +34,15 @@ describe('Testing reservation counter', () => {
       },
 
     ];
-    const reservations = InvolvementService.getReservationsCount(data);
+    const reservations = getReservationCount(data);
     expect(reservations).toBe(5);
+  });
+});
+describe('Testing reservations counter', () => {
+  test('Getting reservations count for rocket when no reservation is found', () => {
+    const data = [];
+    // const luanches = LaunchUI.renderLaunches();
+    const reservation = getReservationCount(data);
+    expect(reservation).toBe(0);
   });
 });

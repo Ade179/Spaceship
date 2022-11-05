@@ -2,7 +2,7 @@
  * @jest-environment jsdom
  */
 
-import LaunchService from '../modules/LaunchService.js';
+import { getLaunchesCount } from '../modules/counters';
 
 describe('Testing items counter', () => {
   test('Getting item count for list', () => {
@@ -45,7 +45,17 @@ describe('Testing items counter', () => {
       },
     ];
     // const luanches = LaunchUI.renderLaunches();
-    const launches = LaunchService.getLauchCount(data);
+    const launches = getLaunchesCount(data);
     expect(launches).toBe(4);
+    expect(launches).not.toBe(0);
+  });
+});
+
+describe('Testing items counter', () => {
+  test('Getting item count for list when no item is found', () => {
+    const data = [];
+    // const luanches = LaunchUI.renderLaunches();
+    const launches = getLaunchesCount(data);
+    expect(launches).toBe(0);
   });
 });

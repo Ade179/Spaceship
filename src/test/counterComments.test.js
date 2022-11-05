@@ -2,11 +2,11 @@
  * @jest-environment jsdom
  */
 
-import InvolvementService from '../modules/InvolvementService.js';
+import { getCommentsCount } from '../modules/counters';
 
 describe('Testing comments counter', () => {
   test('Getting count for comments', () => {
-    const data = [
+    const comments = [
       {
         comment: 'This is nice',
         username: 'abi',
@@ -24,7 +24,16 @@ describe('Testing comments counter', () => {
       },
     ];
     // const luanches = LaunchUI.renderLaunches();
-    const comments = InvolvementService.getCommentsCount(data);
-    expect(comments).toBe(3);
+    const commentCount = getCommentsCount(comments);
+    expect(commentCount).toBe(3);
+  });
+});
+
+describe('Testing comments counter', () => {
+  test('Getting comment count for rocket when no comment is found', () => {
+    const data = [];
+    // const luanches = LaunchUI.renderLaunches();
+    const comment = getCommentsCount(data);
+    expect(comment).toBe(0);
   });
 });
