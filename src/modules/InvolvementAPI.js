@@ -1,5 +1,4 @@
-import { Comment } from './Modals.js';
-import { Reserve } from './Modals.js';
+import { Comment, Reserve } from './Modals.js';
 
 export default class InvolvementAPI {
   static commentsURL = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/VrqTS78qiuqs4OSF4T2H/comments';
@@ -19,7 +18,7 @@ export default class InvolvementAPI {
       })
       .then((json) => {
         json.forEach((c) => {
-          comments.push(new Comment(c.username, c.creation_date,  c.comment));
+          comments.push(new Comment(c.username, c.creation_date, c.comment));
         });
       });
     return comments;
@@ -61,7 +60,7 @@ export default class InvolvementAPI {
     });
   }
 
-  static getReservation = async (launchId) =>{
+  static getReservation = async (launchId) => {
     const reserves = [];
     await fetch(`${InvolvementAPI.reserveURL}?item_id=${launchId}`)
       .then((response) => {
@@ -77,6 +76,7 @@ export default class InvolvementAPI {
       });
     return reserves;
   }
+
   static postReservation = async (launchId, newreservation) => {
     await fetch(InvolvementAPI.reserveURL, {
 
@@ -84,8 +84,8 @@ export default class InvolvementAPI {
       body: JSON.stringify({
         item_id: launchId,
         username: newreservation.username,
-       date_start: newreservation.date_start,
-        date_end: newreservation.date_end
+        date_start: newreservation.date_start,
+        date_end: newreservation.date_end,
       }),
       headers: {
         'Content-type': 'application/json; charset=UTF-8',

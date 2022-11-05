@@ -18,12 +18,10 @@ const btnSaveReserve = document.getElementById('btn-save-reserve');
 btnSaveComment.addEventListener('click', async () => { await InvolvementUI.postComment(); });
 btnSaveReserve.addEventListener('click', async () => { await InvolvementUI.postReservation(); });
 
-
 export default class InvolvementUI {
   static renderComments = async (launchId) => {
-
-    document.getElementById('reserve').style.display = 'none'
-    document.getElementById('comment').style.display = 'block'
+    document.getElementById('reserve').style.display = 'none';
+    document.getElementById('comment').style.display = 'block';
     hiddenLaunchId.value = launchId;
     getDetails.innerHTML = ' ';
     await InvolvementService.getComments(launchId)
@@ -38,8 +36,8 @@ export default class InvolvementUI {
   }
 
   static renderReserves = async (launchId) => {
-    document.getElementById('comment').style.display = 'none'
-    document.getElementById('reserve').style.display = 'block'
+    document.getElementById('comment').style.display = 'none';
+    document.getElementById('reserve').style.display = 'block';
     hiddenLaunchId1.value = launchId;
     getDetails1.innerHTML = ' ';
     await InvolvementService.getReservations(launchId)
@@ -71,9 +69,8 @@ export default class InvolvementUI {
     const launchId = hiddenLaunchId.value;
     if (txtname.value !== '' && txtcomment.value !== '') {
       await InvolvementService.postComment(launchId,
-        new Comment(txtname.value,'', txtcomment.value));
+        new Comment(txtname.value, '', txtcomment.value));
     }
-
 
     InvolvementUI.clearComments();
     InvolvementUI.renderComments(launchId);
@@ -83,8 +80,7 @@ export default class InvolvementUI {
     const launchId = hiddenLaunchId1.value;
     if (username.value !== '' && startDate.value !== '' && endDate.value !== '') {
       await InvolvementService.postReservation(launchId,
-        new Reserve(username.value,startDate.value.toString(),endDate.value.toString()));
-
+        new Reserve(username.value, startDate.value.toString(), endDate.value.toString()));
     }
 
     InvolvementUI.clearReserves();

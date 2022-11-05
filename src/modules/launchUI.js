@@ -27,13 +27,13 @@ export default class LaunchUI {
 
         const h3 = launchCard.getElementsByTagName('h3')[0];
         h3.innerText = launch.name;
- 
+
         const btnComment = launchCard.querySelector('.comment');
         btnComment.addEventListener('click', () => { LaunchUI.showModal(launch.id); });
 
         const btnReserve = launchCard.querySelector('.reserve');
-        btnReserve.addEventListener('click', () => { 
-          LaunchUI.showModalReserve(launch.id); 
+        btnReserve.addEventListener('click', () => {
+          LaunchUI.showModalReserve(launch.id);
         });
 
         const likesCount = launchCard.querySelector('.likes span');
@@ -45,6 +45,7 @@ export default class LaunchUI {
       });
     });
   }
+
   static showModalReserve = (launchId) => {
     const launchdata = LaunchService.getLaunch(launchId);
 
@@ -55,7 +56,7 @@ export default class LaunchUI {
     mission.innerText = launchdata.mission_type;
     pad.innerText = launchdata.pad;
     location.innerText = launchdata.location;
-  InvolvementUI.renderReserves(launchId);
+    InvolvementUI.renderReserves(launchId);
     launchModal.style.display = 'block';
   }
 

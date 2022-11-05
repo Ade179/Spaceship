@@ -1,5 +1,5 @@
 export class Comment {
-  constructor( username, creation_date, comment) {
+  constructor(username, creation_date, comment) {
     this.username = username;
     this.creation_date = creation_date;
     this.comment = comment;
@@ -7,7 +7,7 @@ export class Comment {
 }
 
 export class Reserve {
-  constructor(username, date_start, date_end){
+  constructor(username, date_start, date_end) {
     this.username = username;
     this.date_start = date_start;
     this.date_end = date_end;
@@ -16,7 +16,9 @@ export class Reserve {
 
 export class Launch {
   likes;
+
    reserves = [];
+
   comments = [];
 
   constructor(id, name, lsp_name, mission_type, pad, location, image) {

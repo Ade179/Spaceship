@@ -24,18 +24,17 @@ a {
 .logo > p {
   font-size: 25px;
   color: rgb(66, 106, 66);
-border: 3px solid white;
-padding: 10%;
-border-radius: 10px;
-
+  border: 3px solid white;
+  padding: 10%;
+  border-radius: 10px;
 }
 
 .privacy-policy > a {
   font-size: 25px;
- color: rgb(66, 106, 66);
-border: 3px solid white;
-padding: 10%;
-border-radius: 10px;
+  color: rgb(66, 106, 66);
+  border: 3px solid white;
+  padding: 10%;
+  border-radius: 10px;
 }
 
 header {
@@ -60,13 +59,13 @@ header {
   transition: 0.5s ease-in-out;
 }
 
-
 .fab {
   color: #1e1e1e;
 }
 
 .fas {
   color: #1e1e1e;
+  cursor: pointer;
 }
 
 .media-links {
@@ -127,15 +126,17 @@ header {
   padding: 10px;
   border: none;
 }
-h2{
+
+h2 {
   display: flex;
- justify-content: center;
- margin-bottom: 20px;
- padding-top: 80px;
+  justify-content: center;
+  margin-bottom: 20px;
+  padding-top: 80px;
 }
-.reserveList > li{
+
+.reserveList > li {
   display: flex;
- justify-content: center;
+  justify-content: center;
 }
 
 .template {
@@ -213,12 +214,13 @@ h2{
   align-items: center;
   padding-top: 100px;
 }
+
 #reserve {
-    display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding-top: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 100px;
 }
 
 .bold {
@@ -242,9 +244,11 @@ h2{
   justify-content: center;
   margin-top: 20px;
 }
+
 #comment h2 {
   text-align: center;
 }
+
 .comment {
   display: flex;
   justify-content: center;
@@ -281,20 +285,21 @@ h2{
   flex-wrap: nowrap;
 }
 
-
-#txt-visitor,#username {
+#txt-visitor,
+#username {
   padding: 10px;
   width: 186px;
 }
-.fas {
-  cursor: pointer;
-}
-#txt-comment,#start_date,#end_date {
+
+#txt-comment,
+#start_date,
+#end_date {
   height: 50px;
   padding: 10px;
 }
 
-#btn-save-comment,#btn-save-reserve {
+#btn-save-comment,
+#btn-save-reserve {
   color: white;
   background-color: #009688;
   border-radius: 5px;
@@ -333,6 +338,6 @@ footer {
   justify-content: flex-end;
 }
 
-.Authors{
-  color:#1e1e1e;
+.Authors {
+  color: #1e1e1e;
 }
