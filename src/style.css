@@ -212,7 +212,7 @@ h2 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-top: 100px;
+  padding-top: 10px;
 }
 
 #reserve {
@@ -250,6 +250,7 @@ h2 {
 
 #comment h2 {
   text-align: center;
+  margin-top: 75px;
 }
 
 .comment {
@@ -258,16 +259,12 @@ h2 {
 }
 
 .entry {
-  margin-top: 15px;
+  margin-top: -81px;
   display: flex;
   flex-direction: column;
   gap: 15px;
 }
 
-.commentList {
-  display: flex;
-  flex-direction: column;
-}
 
 .entry form {
   display: flex;
